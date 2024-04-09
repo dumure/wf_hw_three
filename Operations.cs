@@ -2,6 +2,6 @@
 {
     enum Operations
     {
-        ADD, SUBTRACT, DIVIDE, MULTIPLY, EQUALS, PERCENT, NONE
+        ADD, SUBTRACT, DIVIDE, MULTIPLY, EQUALS, NONE
     }
 }

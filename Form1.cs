@@ -454,6 +454,18 @@ namespace wf_hw_three
                     }
                     secondNumber = float.Parse(baseLabel.Text);
                 }
+                else
+                {
+                    if (!isFractional && baseLabel.Text.Length <= 10)
+                    {
+                        baseLabel.Text += ".";
+                    }
+                    if (baseLabel.Text.Any(c => c == '.'))
+                    {
+                        isFractional = true;
+                    }
+                    secondNumber = float.Parse(baseLabel.Text);
+                }
             }
         }
 
@@ -491,47 +503,44 @@ namespace wf_hw_three
             }
             else
             {
-                switch (Operation)
+                if (secondNumber != null)
                 {
-                    case Operations.ADD:
-                        if ((firstNumber + (secondNumber ??= firstNumber)).ToString().Length <= 10)
-                        {
-                            firstNumber = firstNumber + (secondNumber ??= firstNumber);
-                        }
-                        break;
-                    case Operations.SUBTRACT:
-                        if ((firstNumber - (secondNumber ??= firstNumber)).ToString().Length <= 10)
-                        {
-                            firstNumber = firstNumber - (secondNumber ??= firstNumber);
-                        }
-                        break;
-                    case Operations.DIVIDE:
-                        if (secondNumber == 0)
-                        {
-                            MessageBox.Show("Cannot division by zero!", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            clearButton_Click(sender, e);
-                            return;
-                        }
-                        if ((firstNumber / (secondNumber ??= firstNumber)).ToString().Length <= 10)
-                        {
-                            firstNumber = firstNumber / (secondNumber ??= firstNumber);
-                        }
-                        break;
-                    case Operations.MULTIPLY:
-                        if ((firstNumber * (secondNumber ??= firstNumber)).ToString().Length <= 10)
-                        {
-                            firstNumber = firstNumber * (secondNumber ??= firstNumber);
-                        }
-                        break;
-                    case Operations.PERCENT:
-                        if ((firstNumber % (secondNumber ??= firstNumber)).ToString().Length <= 10)
-                        {
-                            firstNumber = firstNumber % (secondNumber ??= firstNumber);
-                        }
-                        break;
-                    case Operations.EQUALS:
-                    case Operations.NONE:
-                        break;
+                    switch (Operation)
+                    {
+                        case Operations.ADD:
+                            if ((firstNumber + secondNumber).ToString().Length <= 10)
+                            {
+                                firstNumber = firstNumber + secondNumber;
+                            }
+                            break;
+                        case Operations.SUBTRACT:
+                            if ((firstNumber - secondNumber).ToString().Length <= 10)
+                            {
+                                firstNumber = firstNumber - secondNumber;
+                            }
+                            break;
+                        case Operations.DIVIDE:
+                            if (secondNumber == 0)
+                            {
+                                MessageBox.Show("Cannot division by zero!", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                clearButton_Click(sender, e);
+                                return;
+                            }
+                            if ((firstNumber / secondNumber).ToString().Length <= 10)
+                            {
+                                firstNumber = firstNumber / secondNumber;
+                            }
+                            break;
+                        case Operations.MULTIPLY:
+                            if ((firstNumber * secondNumber).ToString().Length <= 10)
+                            {
+                                firstNumber = firstNumber * secondNumber;
+                            }
+                            break;
+                        case Operations.EQUALS:
+                        case Operations.NONE:
+                            break;
+                    }
                 }
                 Operation = Operations.ADD;
                 baseLabel.Text = firstNumber.ToString();
@@ -551,47 +560,44 @@ namespace wf_hw_three
             }
             else
             {
-                switch (Operation)
+                if (secondNumber != null)
                 {
-                    case Operations.ADD:
-                        if ((firstNumber + (secondNumber ??= firstNumber)).ToString().Length <= 10)
-                        {
-                            firstNumber = firstNumber + (secondNumber ??= firstNumber);
-                        }
-                        break;
-                    case Operations.SUBTRACT:
-                        if ((firstNumber - (secondNumber ??= firstNumber)).ToString().Length <= 10)
-                        {
-                            firstNumber = firstNumber - (secondNumber ??= firstNumber);
-                        }
-                        break;
-                    case Operations.DIVIDE:
-                        if (secondNumber == 0)
-                        {
-                            MessageBox.Show("Cannot division by zero!", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            clearButton_Click(sender, e);
-                            return;
-                        }
-                        if ((firstNumber / (secondNumber ??= firstNumber)).ToString().Length <= 10)
-                        {
-                            firstNumber = firstNumber / (secondNumber ??= firstNumber);
-                        }
-                        break;
-                    case Operations.MULTIPLY:
-                        if ((firstNumber * (secondNumber ??= firstNumber)).ToString().Length <= 10)
-                        {
-                            firstNumber = firstNumber * (secondNumber ??= firstNumber);
-                        }
-                        break;
-                    case Operations.PERCENT:
-                        if ((firstNumber % (secondNumber ??= firstNumber)).ToString().Length <= 10)
-                        {
-                            firstNumber = firstNumber % (secondNumber ??= firstNumber);
-                        }
-                        break;
-                    case Operations.EQUALS:
-                    case Operations.NONE:
-                        break;
+                    switch (Operation)
+                    {
+                        case Operations.ADD:
+                            if ((firstNumber + secondNumber).ToString().Length <= 10)
+                            {
+                                firstNumber = firstNumber + secondNumber;
+                            }
+                            break;
+                        case Operations.SUBTRACT:
+                            if ((firstNumber - secondNumber).ToString().Length <= 10)
+                            {
+                                firstNumber = firstNumber - secondNumber;
+                            }
+                            break;
+                        case Operations.DIVIDE:
+                            if (secondNumber == 0)
+                            {
+                                MessageBox.Show("Cannot division by zero!", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                clearButton_Click(sender, e);
+                                return;
+                            }
+                            if ((firstNumber / secondNumber).ToString().Length <= 10)
+                            {
+                                firstNumber = firstNumber / secondNumber;
+                            }
+                            break;
+                        case Operations.MULTIPLY:
+                            if ((firstNumber * secondNumber).ToString().Length <= 10)
+                            {
+                                firstNumber = firstNumber * secondNumber;
+                            }
+                            break;
+                        case Operations.EQUALS:
+                        case Operations.NONE:
+                            break;
+                    }
                 }
                 Operation = Operations.SUBTRACT;
                 baseLabel.Text = firstNumber.ToString();
@@ -611,47 +617,44 @@ namespace wf_hw_three
             }
             else
             {
-                switch (Operation)
+                if (secondNumber != null)
                 {
-                    case Operations.ADD:
-                        if ((firstNumber + (secondNumber ??= firstNumber)).ToString().Length <= 10)
-                        {
-                            firstNumber = firstNumber + (secondNumber ??= firstNumber);
-                        }
-                        break;
-                    case Operations.SUBTRACT:
-                        if ((firstNumber - (secondNumber ??= firstNumber)).ToString().Length <= 10)
-                        {
-                            firstNumber = firstNumber - (secondNumber ??= firstNumber);
-                        }
-                        break;
-                    case Operations.DIVIDE:
-                        if (secondNumber == 0)
-                        {
-                            MessageBox.Show("Cannot division by zero!", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            clearButton_Click(sender, e);
-                            return;
-                        }
-                        if ((firstNumber / (secondNumber ??= firstNumber)).ToString().Length <= 10)
-                        {
-                            firstNumber = firstNumber / (secondNumber ??= firstNumber);
-                        }
-                        break;
-                    case Operations.MULTIPLY:
-                        if ((firstNumber * (secondNumber ??= firstNumber)).ToString().Length <= 10)
-                        {
-                            firstNumber = firstNumber * (secondNumber ??= firstNumber);
-                        }
-                        break;
-                    case Operations.PERCENT:
-                        if ((firstNumber % (secondNumber ??= firstNumber)).ToString().Length <= 10)
-                        {
-                            firstNumber = firstNumber % (secondNumber ??= firstNumber);
-                        }
-                        break;
-                    case Operations.EQUALS:
-                    case Operations.NONE:
-                        break;
+                    switch (Operation)
+                    {
+                        case Operations.ADD:
+                            if ((firstNumber + secondNumber).ToString().Length <= 10)
+                            {
+                                firstNumber = firstNumber + secondNumber;
+                            }
+                            break;
+                        case Operations.SUBTRACT:
+                            if ((firstNumber - secondNumber).ToString().Length <= 10)
+                            {
+                                firstNumber = firstNumber - secondNumber;
+                            }
+                            break;
+                        case Operations.DIVIDE:
+                            if (secondNumber == 0)
+                            {
+                                MessageBox.Show("Cannot division by zero!", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                clearButton_Click(sender, e);
+                                return;
+                            }
+                            if ((firstNumber / secondNumber).ToString().Length <= 10)
+                            {
+                                firstNumber = firstNumber / secondNumber;
+                            }
+                            break;
+                        case Operations.MULTIPLY:
+                            if ((firstNumber * secondNumber).ToString().Length <= 10)
+                            {
+                                firstNumber = firstNumber * secondNumber;
+                            }
+                            break;
+                        case Operations.EQUALS:
+                        case Operations.NONE:
+                            break;
+                    }
                 }
                 Operation = Operations.MULTIPLY;
                 baseLabel.Text = firstNumber.ToString();
@@ -671,47 +674,44 @@ namespace wf_hw_three
             }
             else
             {
-                switch (Operation)
+                if (secondNumber != null)
                 {
-                    case Operations.ADD:
-                        if ((firstNumber + (secondNumber ??= firstNumber)).ToString().Length <= 10)
-                        {
-                            firstNumber = firstNumber + (secondNumber ??= firstNumber);
-                        }
-                        break;
-                    case Operations.SUBTRACT:
-                        if ((firstNumber - (secondNumber ??= firstNumber)).ToString().Length <= 10)
-                        {
-                            firstNumber = firstNumber - (secondNumber ??= firstNumber);
-                        }
-                        break;
-                    case Operations.DIVIDE:
-                        if (secondNumber == 0)
-                        {
-                            MessageBox.Show("Cannot division by zero!", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            clearButton_Click(sender, e);
-                            return;
-                        }
-                        if ((firstNumber / (secondNumber ??= firstNumber)).ToString().Length <= 10)
-                        {
-                            firstNumber = firstNumber / (secondNumber ??= firstNumber);
-                        }
-                        break;
-                    case Operations.MULTIPLY:
-                        if ((firstNumber * (secondNumber ??= firstNumber)).ToString().Length <= 10)
-                        {
-                            firstNumber = firstNumber * (secondNumber ??= firstNumber);
-                        }
-                        break;
-                    case Operations.PERCENT:
-                        if ((firstNumber % (secondNumber ??= firstNumber)).ToString().Length <= 10)
-                        {
-                            firstNumber = firstNumber % (secondNumber ??= firstNumber);
-                        }
-                        break;
-                    case Operations.EQUALS:
-                    case Operations.NONE:
-                        break;
+                    switch (Operation)
+                    {
+                        case Operations.ADD:
+                            if ((firstNumber + secondNumber).ToString().Length <= 10)
+                            {
+                                firstNumber = firstNumber + secondNumber;
+                            }
+                            break;
+                        case Operations.SUBTRACT:
+                            if ((firstNumber - secondNumber).ToString().Length <= 10)
+                            {
+                                firstNumber = firstNumber - secondNumber;
+                            }
+                            break;
+                        case Operations.DIVIDE:
+                            if (secondNumber == 0)
+                            {
+                                MessageBox.Show("Cannot division by zero!", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                clearButton_Click(sender, e);
+                                return;
+                            }
+                            if ((firstNumber / secondNumber).ToString().Length <= 10)
+                            {
+                                firstNumber = firstNumber / secondNumber;
+                            }
+                            break;
+                        case Operations.MULTIPLY:
+                            if ((firstNumber * secondNumber).ToString().Length <= 10)
+                            {
+                                firstNumber = firstNumber * secondNumber;
+                            }
+                            break;
+                        case Operations.EQUALS:
+                        case Operations.NONE:
+                            break;
+                    }
                 }
                 Operation = Operations.DIVIDE;
                 baseLabel.Text = firstNumber.ToString();
@@ -725,64 +725,41 @@ namespace wf_hw_three
         {
             if (Operation == Operations.NONE || Operation == Operations.EQUALS)
             {
-                Operation = Operations.PERCENT;
-                helpLabel.Text = $"{firstNumber} % ";
-                isFractional = false;
+                if (!isFractional && baseLabel.Text.Length <= 10)
+                {
+                    if ((firstNumber / 100).ToString().Length <= 10)
+                    {
+                        firstNumber = firstNumber / 100;
+                    }
+                    baseLabel.Text = firstNumber.ToString();
+                }
             }
             else
             {
-                switch (Operation)
+                if (!isFractional && baseLabel.Text.Length <= 10)
                 {
-                    case Operations.ADD:
-                        if ((firstNumber + (secondNumber ??= firstNumber)).ToString().Length <= 10)
+                    if (secondNumber == null || secondNumber == 0)
+                    {
+                        if ((firstNumber / 100).ToString().Length <= 10)
                         {
-                            firstNumber = firstNumber + (secondNumber ??= firstNumber);
+                            secondNumber = firstNumber / 100;
                         }
-                        break;
-                    case Operations.SUBTRACT:
-                        if ((firstNumber - (secondNumber ??= firstNumber)).ToString().Length <= 10)
+                    }
+                    else
+                    {
+                        if ((secondNumber / 100).ToString().Length <= 10)
                         {
-                            firstNumber = firstNumber - (secondNumber ??= firstNumber);
+                            secondNumber = 1 / secondNumber;
                         }
-                        break;
-                    case Operations.DIVIDE:
-                        if (secondNumber == 0)
-                        {
-                            MessageBox.Show("Cannot division by zero!", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            clearButton_Click(sender, e);
-                            return;
-                        }
-                        if ((firstNumber / (secondNumber ??= firstNumber)).ToString().Length <= 10)
-                        {
-                            firstNumber = firstNumber / (secondNumber ??= firstNumber);
-                        }
-                        break;
-                    case Operations.MULTIPLY:
-                        if ((firstNumber * (secondNumber ??= firstNumber)).ToString().Length <= 10)
-                        {
-                            firstNumber = firstNumber * (secondNumber ??= firstNumber);
-                        }
-                        break;
-                    case Operations.PERCENT:
-                        if ((firstNumber % (secondNumber ??= firstNumber)).ToString().Length <= 10)
-                        {
-                            firstNumber = firstNumber % (secondNumber ??= firstNumber);
-                        }
-                        break;
-                    case Operations.EQUALS:
-                    case Operations.NONE:
-                        break;
+                    }
+                    baseLabel.Text = secondNumber.ToString();
                 }
-                Operation = Operations.PERCENT;
-                baseLabel.Text = firstNumber.ToString();
-                helpLabel.Text = $"{firstNumber} % ";
-                isFractional = false;
             }
-            secondNumber = null;
         }
 
         private void equalsButton_Click(object sender, EventArgs e)
         {
+            secondNumber ??= firstNumber;
             switch (Operation)
             {
                 case Operations.ADD:
@@ -811,9 +788,9 @@ namespace wf_hw_three
                         clearButton_Click(sender, e);
                         return;
                     }
-                    if ((firstNumber / (secondNumber ??= firstNumber)).ToString().Length <= 10)
+                    if ((firstNumber / secondNumber).ToString().Length <= 10)
                     {
-                        firstNumber = firstNumber / (secondNumber ??= firstNumber);
+                        firstNumber = firstNumber / secondNumber;
                     }
                     baseLabel.Text = firstNumber.ToString();
                     secondNumber = null;
@@ -885,7 +862,9 @@ namespace wf_hw_three
                         return;
                     }
                     if ((1 / firstNumber).ToString().Length <= 10)
+                    {
                         firstNumber = 1 / firstNumber;
+                    }
                     baseLabel.Text = firstNumber.ToString();
                 }
             }
